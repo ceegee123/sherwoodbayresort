@@ -1,0 +1,3883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sherwood Bay Resort & Dive School — Panglao, Bohol</title>
+<meta name="description" content="A boutique beachfront retreat and PADI dive school on Panglao Island, Bohol. Infinity pool, sea-view restaurant, scuba diving for all levels." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ROOT TOKENS
+   ============================================================ */
+:root {
+  --sky:        #cfe7f5;
+  --sky-soft:   #e6f2fa;
+  --sky-mist:   #f3f9fc;
+  --sand:       #fff4cf;
+  --sand-soft:  #fff9e3;
+  --sand-deep:  #f0d684;
+  --deep:       #0d2e4f;
+  --deep-soft:  #2c5680;
+  --ink:        #0a1f33;
+  --white:      #ffffff;
+  --cream:      #fbf9f3;
+  --paper:      #f7f3e9;
+  --gold:       #c19534;
+  --coral:      #d97757;
+  --line:       rgba(13, 46, 79, 0.12);
+  --line-soft:  rgba(13, 46, 79, 0.06);
+
+  --serif:  'Cormorant Garamond', 'Garamond', serif;
+  --sans:   'Inter', system-ui, sans-serif;
+  --script: 'Caveat', cursive;
+
+  --shadow-sm: 0 4px 12px -2px rgba(13, 46, 79, 0.08);
+  --shadow:    0 20px 50px -15px rgba(13, 46, 79, 0.22);
+  --shadow-lg: 0 40px 80px -25px rgba(13, 46, 79, 0.35);
+
+  --r-sm: 8px;
+  --r:    14px;
+  --r-lg: 24px;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+input, select, textarea { font-family: inherit; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.serif { font-family: var(--serif); }
+.script { font-family: var(--script); }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--deep);
+}
+
+.display {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+}
+
+.display em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--deep-soft);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--deep-soft);
+}
+
+.eyebrow.centered { justify-content: center; }
+.eyebrow.centered::before { display: none; }
+.eyebrow.centered::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--deep-soft);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav.main-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.5rem;
+  background: rgba(251, 249, 243, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: padding 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+nav.main-nav.scrolled {
+  padding: 0.7rem 2.5rem;
+  border-color: var(--line-soft);
+  background: rgba(251, 249, 243, 0.96);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--deep);
+}
+
+.nav-brand img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.nav-brand:hover img { transform: rotate(10deg); }
+
+.nav-brand-text {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.nav-brand-text span {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  margin-top: 5px;
+  color: var(--deep-soft);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--deep);
+  font-size: 0.86rem;
+  font-weight: 400;
+  position: relative;
+  padding: 0.4rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background: var(--deep);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 0.7rem 1.4rem;
+  background: var(--deep);
+  color: var(--cream) !important;
+  border-radius: 100px;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.02em;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.nav-cta::after { display: none; }
+.nav-cta:hover { background: var(--deep-soft); transform: translateY(-1px); }
+
+.menu-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  position: relative;
+}
+
+.menu-toggle span {
+  position: absolute;
+  left: 4px;
+  width: 24px;
+  height: 1.5px;
+  background: var(--deep);
+  transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle span:nth-child(1) { top: 10px; }
+.menu-toggle span:nth-child(2) { top: 16px; }
+.menu-toggle span:nth-child(3) { top: 22px; }
+
+.menu-toggle.open span:nth-child(1) { top: 16px; transform: rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { top: 16px; transform: rotate(-45deg); }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1rem 1.8rem;
+  border-radius: 100px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-primary { background: var(--deep); color: var(--cream); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -10px rgba(13,46,79,0.5); }
+
+.btn-secondary { background: transparent; color: var(--deep); border: 1px solid var(--line); }
+.btn-secondary:hover { border-color: var(--deep); background: var(--deep); color: var(--cream); }
+
+.btn-gold { background: var(--gold); color: var(--cream); }
+.btn-gold:hover { background: #a8821e; transform: translateY(-2px); }
+
+.btn-arrow::after { content: "→"; transition: transform 0.25s ease; }
+.btn-arrow:hover::after { transform: translateX(4px); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  background: var(--deep);
+}
+
+.hero-slides {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.hero-slide.active { opacity: 1; }
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  0%   { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13,46,79,0.5) 0%,
+    rgba(13,46,79,0.25) 30%,
+    rgba(13,46,79,0.55) 100%
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 3rem 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.3s forwards;
+}
+
+.hero-eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--sand);
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 300;
+  line-height: 0.98;
+  color: var(--cream);
+  max-width: 900px;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.5s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--sand);
+}
+
+.hero-tagline {
+  font-family: var(--script);
+  font-size: 1.6rem;
+  color: var(--sand);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.7s forwards;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.9s forwards;
+}
+
+.hero-actions .btn-primary {
+  background: var(--cream);
+  color: var(--deep);
+}
+
+.hero-actions .btn-primary:hover {
+  background: var(--sand);
+}
+
+.hero-actions .btn-secondary {
+  color: var(--cream);
+  border-color: rgba(251, 249, 243, 0.4);
+}
+
+.hero-actions .btn-secondary:hover {
+  background: var(--cream);
+  color: var(--deep);
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 3rem;
+  right: 3rem;
+  z-index: 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.2s forwards;
+}
+
+.hero-dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.hero-dot {
+  width: 28px;
+  height: 2px;
+  background: rgba(251, 249, 243, 0.3);
+  border-radius: 1px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-dot.active { background: var(--cream); }
+
+.hero-scroll {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-scroll::after {
+  content: "↓";
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(6px); }
+  60% { transform: translateY(3px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ============================================================
+   BOOKING WIDGET (FLOATING)
+   ============================================================ */
+.booking-widget {
+  position: relative;
+  z-index: 10;
+  max-width: 1100px;
+  margin: -80px auto 0;
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  gap: 0;
+  align-items: center;
+}
+
+.booking-field {
+  padding: 0.8rem 1.5rem;
+  border-right: 1px solid var(--line-soft);
+  position: relative;
+}
+
+.booking-field:last-of-type { border-right: none; }
+
+.booking-field label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.booking-field input,
+.booking-field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--deep);
+  font-weight: 500;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.booking-field input[type="date"] { font-family: var(--sans); font-size: 0.9rem; }
+
+.booking-search {
+  padding: 0.5rem 1rem;
+}
+
+.booking-search button {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: var(--deep);
+  color: var(--cream);
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.booking-search button:hover {
+  background: var(--deep-soft);
+  transform: translateY(-2px);
+}
+
+.booking-availability {
+  max-width: 1100px;
+  margin: 1rem auto 0;
+  padding: 0 2rem;
+  font-size: 0.85rem;
+  color: var(--deep-soft);
+  min-height: 24px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.booking-availability.success { color: #2d7a4f; }
+.booking-availability.error   { color: var(--coral); }
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+section { padding: 8rem 3rem; }
+
+.container { max-width: 1400px; margin: 0 auto; }
+
+.section-head {
+  max-width: 760px;
+  margin-bottom: 4rem;
+}
+
+.section-head.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-head h2 {
+  font-size: clamp(2.4rem, 4.5vw, 4rem);
+  margin: 1.4rem 0 1.5rem;
+  font-weight: 400;
+}
+
+.section-head h2 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--deep-soft);
+}
+
+.section-head p {
+  font-size: 1.1rem;
+  color: var(--deep-soft);
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+.section-head.center p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   ABOUT / WELCOME
+   ============================================================ */
+.about {
+  background: var(--cream);
+  padding: 7rem 3rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 6rem;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.about-visual {
+  position: relative;
+}
+
+.about-image-stack {
+  position: relative;
+  aspect-ratio: 4/5;
+}
+
+.about-image-main {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-image-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image-secondary {
+  position: absolute;
+  bottom: -3rem;
+  right: -3rem;
+  width: 50%;
+  aspect-ratio: 4/5;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 8px solid var(--cream);
+}
+
+.about-image-secondary img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-stamp {
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: var(--sand);
+  color: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--script);
+  font-size: 1.4rem;
+  line-height: 1.1;
+  z-index: 2;
+  box-shadow: var(--shadow-sm);
+  animation: floatStamp 6s ease-in-out infinite;
+}
+
+@keyframes floatStamp {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+.about-text .signature {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-style: italic;
+  color: var(--deep);
+  line-height: 1.45;
+  margin: 1.8rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--gold);
+}
+
+.about-text p {
+  font-size: 1.02rem;
+  color: var(--deep-soft);
+  margin-bottom: 1.2rem;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.about-feature {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  font-size: 0.95rem;
+  color: var(--deep);
+}
+
+.about-feature .icon {
+  width: 36px;
+  height: 36px;
+  background: var(--sky-soft);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+.stats {
+  padding: 5rem 3rem;
+  background: var(--deep);
+  color: var(--cream);
+}
+
+.stats-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.stat {
+  text-align: center;
+  padding: 1rem;
+}
+
+.stat .num {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--sand);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.stat .label {
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(251,249,243,0.7);
+}
+
+/* ============================================================
+   PROPERTY GALLERY
+   ============================================================ */
+.property {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--sky-mist) 100%);
+}
+
+.property-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  justify-content: center;
+}
+
+.property-filter {
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--deep-soft);
+  background: transparent;
+  transition: all 0.25s ease;
+  letter-spacing: 0.04em;
+}
+
+.property-filter:hover { border-color: var(--deep-soft); color: var(--deep); }
+
+.property-filter.active {
+  background: var(--deep);
+  color: var(--cream);
+  border-color: var(--deep);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 200px;
+  gap: 1rem;
+}
+
+.prop-tile {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--sky-soft);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+}
+
+.prop-tile.hidden {
+  display: none;
+}
+
+.prop-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.prop-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.prop-tile:hover img { transform: scale(1.06); }
+
+.prop-tile-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.4rem;
+  background: linear-gradient(180deg, transparent 40%, rgba(13,46,79,0.85) 100%);
+  color: var(--cream);
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+
+.prop-tile-overlay .label {
+  font-size: 0.68rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.prop-tile-overlay .title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.prop-tile .zoom-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  background: rgba(251, 249, 243, 0.95);
+  color: var(--deep);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.prop-tile:hover .zoom-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Magazine-style asymmetric layout */
+.prop-tile.size-hero { grid-column: span 8; grid-row: span 2; }
+.prop-tile.size-tall { grid-column: span 4; grid-row: span 2; }
+.prop-tile.size-wide { grid-column: span 6; grid-row: span 1; }
+.prop-tile.size-md   { grid-column: span 4; grid-row: span 1; }
+.prop-tile.size-sm   { grid-column: span 3; grid-row: span 1; }
+
+/* ============================================================
+   ROOMS
+   ============================================================ */
+.rooms {
+  background: var(--cream);
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.room-card {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.room-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.room-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.room-card:hover .room-image img { transform: scale(1.08); }
+
+.room-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.4rem 0.9rem;
+  background: rgba(251, 249, 243, 0.95);
+  color: var(--deep);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.room-image-count {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(13, 46, 79, 0.8);
+  color: var(--cream);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(8px);
+}
+
+.room-body {
+  padding: 1.8rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.room-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.room-meta {
+  font-size: 0.85rem;
+  color: var(--deep-soft);
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.room-meta span { display: inline-flex; align-items: center; gap: 0.3rem; }
+
+.room-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+
+.room-feature-tag {
+  padding: 0.3rem 0.7rem;
+  background: var(--sky-mist);
+  color: var(--deep-soft);
+  font-size: 0.72rem;
+  border-radius: 100px;
+  letter-spacing: 0.04em;
+}
+
+.room-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.room-price {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--deep);
+  line-height: 1;
+}
+
+.room-price small {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--deep-soft);
+  margin-left: 0.3rem;
+}
+
+.room-view-btn {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--deep);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.25s ease;
+}
+
+.room-card:hover .room-view-btn { gap: 0.7rem; }
+
+/* ============================================================
+   PACKAGES
+   ============================================================ */
+.packages {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.package {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: 2.5rem 2.2rem;
+  position: relative;
+  border: 1px solid var(--line-soft);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.package:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.package.featured {
+  background: var(--deep);
+  color: var(--cream);
+  border-color: var(--deep);
+  transform: scale(1.02);
+}
+
+.package.featured:hover { transform: scale(1.02) translateY(-6px); }
+
+.package.featured h3,
+.package.featured .package-price { color: var(--cream); }
+
+.package.featured .package-meta,
+.package.featured ul li { color: rgba(251,249,243,0.85); }
+
+.package.featured ul li::before { background: var(--sand); }
+
+.package.featured .package-num { color: var(--sand); }
+
+.package-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.4rem 1rem;
+  background: var(--sand);
+  color: var(--deep);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.package-num {
+  font-family: var(--serif);
+  font-size: 3.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--sky);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.package h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.package-meta {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+  margin-bottom: 1.6rem;
+}
+
+.package-price {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--deep);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+
+.package-price small {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--deep-soft);
+  letter-spacing: 0;
+  margin-left: 0.3rem;
+}
+
+.package ul {
+  list-style: none;
+  margin-bottom: 2rem;
+  flex: 1;
+}
+
+.package ul li {
+  padding: 0.5rem 0;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  color: var(--deep-soft);
+}
+
+.package ul li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 0.55rem;
+  flex-shrink: 0;
+}
+
+.package-btn {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 100px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: var(--deep);
+  color: var(--cream);
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.package-btn:hover { background: var(--deep-soft); transform: translateY(-1px); }
+
+.package.featured .package-btn { background: var(--sand); color: var(--deep); }
+.package.featured .package-btn:hover { background: var(--sand-deep); }
+
+/* ============================================================
+   EXPERIENCES (BOHOL TOURS)
+   ============================================================ */
+.experiences {
+  background: var(--paper);
+}
+
+.exp-builder {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 3rem;
+  border: 1px solid var(--line-soft);
+}
+
+.exp-builder-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.exp-builder-head h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.exp-builder-summary {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.exp-count, .exp-total, .exp-duration {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  color: var(--deep);
+}
+
+.exp-count small, .exp-total small, .exp-duration small {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+  display: block;
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.exp-clear {
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  color: var(--deep-soft);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  transition: all 0.2s ease;
+}
+
+.exp-clear:hover { border-color: var(--coral); color: var(--coral); }
+
+.exp-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.2rem;
+}
+
+.exp-card {
+  position: relative;
+  border-radius: var(--r);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--white);
+  border: 2px solid transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.8rem;
+  isolation: isolate;
+}
+
+.exp-card.size-lg { grid-column: span 7; min-height: 360px; }
+.exp-card.size-md { grid-column: span 5; }
+.exp-card.size-sm { grid-column: span 4; }
+
+.exp-card-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.exp-card-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,46,79,0.1) 0%, rgba(13,46,79,0.85) 100%);
+  z-index: 1;
+}
+
+.exp-card-bg-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.exp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.exp-card.selected {
+  border-color: var(--sand);
+  box-shadow: 0 20px 40px -15px rgba(193, 149, 52, 0.5);
+}
+
+.exp-card.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  background: var(--sand);
+  color: var(--deep);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  z-index: 3;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.exp-card-content {
+  position: relative;
+  z-index: 2;
+  color: var(--cream);
+}
+
+.exp-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+
+.exp-card h4 {
+  color: var(--cream);
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.exp-card p {
+  color: rgba(251,249,243,0.85);
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.exp-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  color: rgba(251,249,243,0.75);
+}
+
+.exp-card-meta .price {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  color: var(--sand);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.exp-card-meta .duration {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   DIVE SCHOOL
+   ============================================================ */
+.dive-school {
+  background: var(--deep);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.dive-school::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 25%, rgba(255,244,207,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(207,231,245,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.dive-school .container { position: relative; z-index: 2; }
+
+.dive-school .section-head h2 { color: var(--cream); }
+.dive-school .section-head h2 em { color: var(--sky); }
+.dive-school .section-head p { color: rgba(251,249,243,0.75); }
+.dive-school .eyebrow { color: var(--sand); }
+.dive-school .eyebrow::before, .dive-school .eyebrow::after { background: var(--sand); }
+
+.dive-calculator {
+  background: rgba(251,249,243,0.06);
+  border: 1px solid rgba(251,249,243,0.12);
+  border-radius: var(--r-lg);
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+  backdrop-filter: blur(10px);
+}
+
+.dive-calc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.dive-calc-head h3 {
+  color: var(--cream);
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.dive-calc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.dive-calc-field label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251,249,243,0.65);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.dive-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.dive-option {
+  padding: 0.8rem 1rem;
+  background: rgba(251,249,243,0.04);
+  border: 1px solid rgba(251,249,243,0.1);
+  border-radius: 10px;
+  color: var(--cream);
+  font-size: 0.92rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dive-option:hover {
+  background: rgba(251,249,243,0.08);
+  border-color: rgba(251,249,243,0.2);
+}
+
+.dive-option.active {
+  background: var(--sand);
+  color: var(--deep);
+  border-color: var(--sand);
+}
+
+.dive-option .meta {
+  font-size: 0.75rem;
+  color: rgba(251,249,243,0.5);
+}
+
+.dive-option.active .meta { color: rgba(13,46,79,0.7); }
+
+.dive-calc-result {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(251,249,243,0.12);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 2rem;
+  align-items: center;
+}
+
+.dive-result-item small {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(251,249,243,0.6);
+  margin-bottom: 0.4rem;
+}
+
+.dive-result-item .value {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  color: var(--sand);
+  font-weight: 400;
+}
+
+.dive-result-item .value.big {
+  font-size: 2.2rem;
+}
+
+.dive-cta {
+  padding: 1rem 2rem;
+  background: var(--sand);
+  color: var(--deep);
+  border-radius: 100px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+
+.dive-cta:hover { background: var(--sand-deep); transform: translateY(-2px); }
+
+.dive-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.dive-card {
+  padding: 2.5rem;
+  background: rgba(251,249,243,0.04);
+  border: 1px solid rgba(251,249,243,0.12);
+  border-radius: var(--r);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dive-card:hover {
+  background: rgba(251,249,243,0.07);
+  transform: translateY(-3px);
+}
+
+.dive-card .num-tag {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--sand);
+  margin-bottom: 0.8rem;
+  display: block;
+  letter-spacing: 0.04em;
+}
+
+.dive-card h4 {
+  color: var(--cream);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.dive-card p {
+  color: rgba(251,249,243,0.75);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   VIDEO SECTION
+   ============================================================ */
+.video-section {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+}
+
+.video-frame {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16/9;
+  background: var(--deep);
+  cursor: pointer;
+}
+
+.video-frame iframe,
+.video-frame video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+  background: var(--deep);
+}
+
+.video-frame.playing iframe,
+.video-frame.playing video { display: block; }
+.video-frame.playing .video-poster,
+.video-frame.playing .video-poster-overlay { display: none; }
+
+.video-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.video-frame:hover .video-poster { transform: scale(1.04); }
+
+.video-poster-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(13,46,79,0.2) 0%, rgba(13,46,79,0.4) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.play-button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(251, 249, 243, 0.95);
+  color: var(--deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding-left: 6px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 0 0 rgba(251,249,243,0.5);
+  animation: pulseRing 2.5s ease infinite;
+}
+
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(251,249,243,0.5); }
+  70% { box-shadow: 0 0 0 30px rgba(251,249,243,0); }
+  100% { box-shadow: 0 0 0 0 rgba(251,249,243,0); }
+}
+
+.video-frame:hover .play-button { transform: scale(1.1); }
+
+.video-poster-text {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 2.5rem;
+  z-index: 3;
+  color: var(--cream);
+}
+
+.video-poster-text .label {
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 0.5rem;
+}
+
+.video-poster-text .title {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-style: italic;
+}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testimonials {
+  background: var(--cream);
+  padding: 7rem 3rem;
+}
+
+.testimonial-carousel {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial {
+  text-align: center;
+  display: none;
+  animation: testimonialFade 0.6s ease;
+}
+
+.testimonial.active { display: block; }
+
+@keyframes testimonialFade {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.3rem;
+  margin-bottom: 2rem;
+}
+
+.testimonial-text {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  font-style: italic;
+  color: var(--deep);
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+.testimonial-author {
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+  font-weight: 500;
+}
+
+.testimonial-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 3rem;
+}
+
+.testimonial-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact {
+  background: var(--paper);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-info-card {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line-soft);
+}
+
+.contact-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.contact-item:last-of-type { border-bottom: none; padding-bottom: 0; }
+.contact-item:first-of-type { padding-top: 0; }
+
+.contact-item .icon {
+  width: 44px;
+  height: 44px;
+  background: var(--sky-soft);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.contact-item .label {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+  margin-bottom: 0.3rem;
+  display: block;
+  font-weight: 500;
+}
+
+.contact-item .value {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--deep);
+  font-weight: 500;
+}
+
+.contact-item a { color: var(--deep); text-decoration: none; }
+.contact-item a:hover { text-decoration: underline; }
+
+.contact-form {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line-soft);
+}
+
+.contact-form h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.contact-form .subtitle {
+  font-size: 0.92rem;
+  color: var(--deep-soft);
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  margin-bottom: 1rem;
+}
+
+.form-field label,
+.form-row label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--deep-soft);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea,
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: var(--ink);
+  transition: border-color 0.2s ease, background 0.2s ease;
+  outline: none;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus,
+.form-row input:focus,
+.form-row select:focus {
+  border-color: var(--deep);
+  background: var(--white);
+}
+
+.form-field input.error,
+.form-field textarea.error {
+  border-color: var(--coral);
+  background: rgba(217, 119, 87, 0.05);
+}
+
+.form-error {
+  font-size: 0.78rem;
+  color: var(--coral);
+  margin-top: 0.4rem;
+  display: none;
+}
+
+.form-error.show { display: block; }
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 110px;
+  font-family: inherit;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 1.1rem;
+  background: var(--deep);
+  color: var(--cream);
+  border-radius: 100px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 0.25s ease, transform 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.form-submit:hover { background: var(--deep-soft); transform: translateY(-2px); }
+
+.form-submit:disabled {
+  background: var(--deep-soft);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-success {
+  display: none;
+  padding: 1.2rem;
+  background: rgba(45, 122, 79, 0.08);
+  border: 1px solid rgba(45, 122, 79, 0.2);
+  color: #2d7a4f;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.form-success.show { display: block; animation: fadeUp 0.5s ease; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--deep);
+  color: var(--cream);
+  padding: 5rem 3rem 2rem;
+}
+
+.footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand { max-width: 380px; }
+
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.footer-brand-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.footer-brand-row .name {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.footer-brand p {
+  color: rgba(251,249,243,0.65);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(251,249,243,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.footer-social a:hover {
+  background: var(--sand);
+  color: var(--deep);
+  transform: translateY(-2px);
+}
+
+footer h5 {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sand);
+  margin-bottom: 1.4rem;
+  font-weight: 500;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+footer ul a, footer ul li {
+  color: rgba(251,249,243,0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+footer ul a:hover { color: var(--cream); }
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(251,249,243,0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: rgba(251,249,243,0.5);
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 31, 51, 0.95);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox.open {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: var(--r);
+  box-shadow: var(--shadow-lg);
+  animation: zoomIn 0.4s ease;
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--cream);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 600px;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  background: rgba(251,249,243,0.1);
+  color: var(--cream);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: background 0.25s ease;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(251,249,243,0.2);
+}
+
+.lightbox-close { top: 2rem; right: 2rem; }
+.lightbox-prev { left: 2rem; top: 50%; transform: translateY(-50%); }
+.lightbox-next { right: 2rem; top: 50%; transform: translateY(-50%); }
+
+.lightbox-counter {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: var(--cream);
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  background: rgba(251,249,243,0.1);
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+}
+
+/* ============================================================
+   ROOM MODAL
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 31, 51, 0.85);
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.modal-overlay.open {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  background: var(--cream);
+  border-radius: var(--r-lg);
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: zoomIn 0.4s ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(251,249,243,0.95);
+  color: var(--deep);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 5;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close:hover { background: var(--cream); transform: rotate(90deg); }
+
+.modal-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+}
+
+.modal-body { padding: 2.5rem; }
+
+.modal-body .badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--sand);
+  color: var(--deep);
+  border-radius: 100px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.modal-body h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.modal-body .description {
+  font-size: 1rem;
+  color: var(--deep-soft);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.modal-body .features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  padding: 1.5rem;
+  background: var(--white);
+  border-radius: var(--r);
+  margin-bottom: 1.5rem;
+}
+
+.modal-body .features div {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--deep);
+}
+
+.modal-body .features div::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modal-price {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--deep);
+}
+
+.modal-price small {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: var(--deep-soft);
+  margin-left: 0.3rem;
+}
+
+/* ============================================================
+   MOBILE MENU OVERLAY
+   ============================================================ */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--cream);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+}
+
+.mobile-menu.open { transform: translateX(0); }
+
+.mobile-menu ul {
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-menu li { margin-bottom: 1.5rem; }
+
+.mobile-menu a {
+  font-family: var(--serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--deep);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-menu a:hover { color: var(--gold); }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--deep);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.25s ease;
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover { background: var(--deep-soft); transform: translateY(-3px); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  nav.main-nav, nav.main-nav.scrolled { padding: 1rem 1.5rem; }
+  section { padding: 5rem 1.5rem; }
+  .about, .testimonials, .stats { padding: 5rem 1.5rem; }
+
+  .booking-widget {
+    grid-template-columns: 1fr 1fr;
+    margin: -60px 1.5rem 0;
+  }
+  .booking-field { border-right: none; border-bottom: 1px solid var(--line-soft); }
+  .booking-field:nth-last-child(2) { border-bottom: none; }
+  .booking-search { grid-column: span 2; padding: 0.8rem 0.5rem 0; }
+
+  .hero-content, .hero-bottom { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 4rem; }
+
+  .about-image-secondary { width: 40%; bottom: -2rem; right: -1rem; }
+  .about-stamp { top: -1rem; left: -1rem; width: 100px; height: 100px; font-size: 1.1rem; }
+
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+
+  .property-grid { grid-template-columns: repeat(6, 1fr); }
+  .prop-tile.size-hero, .prop-tile.size-wide { grid-column: span 6; grid-row: span 2; }
+  .prop-tile.size-tall { grid-column: span 3; grid-row: span 2; }
+  .prop-tile.size-md, .prop-tile.size-sm { grid-column: span 3; grid-row: span 1; }
+
+  .rooms-grid, .package-grid { grid-template-columns: 1fr 1fr; }
+  .package.featured { transform: none; }
+  .package.featured:hover { transform: translateY(-6px); }
+
+  .exp-grid { grid-template-columns: 1fr 1fr; }
+  .exp-card.size-lg, .exp-card.size-md, .exp-card.size-sm { grid-column: span 1; }
+
+  .dive-cards { grid-template-columns: 1fr; }
+  .dive-calc-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .dive-calc-result { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .dive-cta { grid-column: span 2; text-align: center; }
+
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 640px) {
+  .booking-widget { grid-template-columns: 1fr; }
+  .booking-field { border-bottom: 1px solid var(--line-soft); }
+  .booking-search { grid-column: 1; }
+
+  .hero { min-height: 600px; }
+  .hero-content { padding-bottom: 4rem; }
+
+  .about-image-secondary, .about-stamp { display: none; }
+  .about-features, .package-grid, .rooms-grid { grid-template-columns: 1fr; }
+  .exp-grid { grid-template-columns: 1fr; }
+
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+  .property-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
+  .prop-tile.size-hero, .prop-tile.size-wide, .prop-tile.size-tall { grid-column: span 2; grid-row: span 2; }
+  .prop-tile.size-md, .prop-tile.size-sm { grid-column: span 1; grid-row: span 1; }
+
+  .lightbox-prev { left: 1rem; }
+  .lightbox-next { right: 1rem; }
+  .lightbox-close { top: 1rem; right: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav class="main-nav" id="mainNav">
+  <a href="#top" class="nav-brand">
+    <img src="logo.png" alt="" />
+    <div class="nav-brand-text">
+      Sherwood Bay
+      <span>Resort · Dive School</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-link>About</a></li>
+    <li><a href="#property" data-link>Property</a></li>
+    <li><a href="#rooms" data-link>Rooms</a></li>
+    <li><a href="#packages" data-link>Stay</a></li>
+    <li><a href="#experiences" data-link>Bohol</a></li>
+    <li><a href="#dive" data-link>Dive</a></li>
+    <li><a href="#contact" class="nav-cta" data-link>Reserve</a></li>
+  </ul>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- ============================================================
+     MOBILE MENU
+     ============================================================ -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" data-mobile-link>About</a></li>
+    <li><a href="#property" data-mobile-link>Property</a></li>
+    <li><a href="#rooms" data-mobile-link>Rooms</a></li>
+    <li><a href="#packages" data-mobile-link>Stay</a></li>
+    <li><a href="#experiences" data-mobile-link>Bohol</a></li>
+    <li><a href="#dive" data-mobile-link>Dive School</a></li>
+    <li><a href="#contact" data-mobile-link>Reserve</a></li>
+  </ul>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active"><img src="photos/restaurant-octagon.jpg" alt="" /></div>
+    <div class="hero-slide"><img src="photos/sunset-pink.jpg" alt="" /></div>
+    <div class="hero-slide"><img src="photos/pool-night-blue-close.jpg" alt="" /></div>
+    <div class="hero-slide"><img src="photos/grounds-palm.jpg" alt="" /></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Panglao Island · Bohol · Philippines</span>
+    <h1>Where the tide<br/>meets <em>paradise.</em></h1>
+    <p class="hero-tagline">~ a boutique retreat by the sea ~</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn btn-primary btn-arrow">Check availability</a>
+      <a href="#property" class="btn btn-secondary">Explore the property</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hero-dots" id="heroDots">
+      <div class="hero-dot active" data-slide="0"></div>
+      <div class="hero-dot" data-slide="1"></div>
+      <div class="hero-dot" data-slide="2"></div>
+      <div class="hero-dot" data-slide="3"></div>
+    </div>
+    <div class="hero-scroll">Scroll</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOKING WIDGET
+     ============================================================ -->
+<div class="booking-widget reveal" id="booking">
+  <div class="booking-field">
+    <label>Check in</label>
+    <input type="date" id="checkIn" />
+  </div>
+  <div class="booking-field">
+    <label>Check out</label>
+    <input type="date" id="checkOut" />
+  </div>
+  <div class="booking-field">
+    <label>Guests</label>
+    <select id="guests">
+      <option value="1">1 Guest</option>
+      <option value="2" selected>2 Guests</option>
+      <option value="3">3 Guests</option>
+      <option value="4">4 Guests</option>
+      <option value="5">5 Guests</option>
+      <option value="6">6+ Guests</option>
+    </select>
+  </div>
+  <div class="booking-field">
+    <label>Room type</label>
+    <select id="roomType">
+      <option value="any">Any room</option>
+      <option value="standard">Standard</option>
+      <option value="superior">Superior</option>
+      <option value="suite">Suite</option>
+      <option value="exclusive">Exclusive Buyout</option>
+    </select>
+  </div>
+  <div class="booking-search">
+    <button id="bookingSearchBtn">Search →</button>
+  </div>
+</div>
+<div class="booking-availability" id="bookingMsg">Choose your dates to see live availability.</div>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="about-image-stack">
+        <div class="about-stamp">Est.<br/>Sherwood<br/>Bay</div>
+        <div class="about-image-main">
+          <img src="photos/restaurant-sunset.jpg" alt="Sherwood Bay restaurant at sunset" />
+        </div>
+        <div class="about-image-secondary">
+          <img src="photos/balcony-view.jpg" alt="Balcony view of the sea" />
+        </div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow">A boutique sanctuary</span>
+      <h2>A tropical sanctuary <em>on the edge of the sea.</em></h2>
+      <p class="signature">"Spacious rooms, breathtaking sea views, and one of the best scuba diving locations in the Philippines."</p>
+      <p>Set on Panglao Island in Bohol, Sherwood Bay Resort & Aqua Sports Inc. is a family-run, family-feeling property — a place built around two things: the water in front of it, and the way the light moves across it from dawn until dark.</p>
+      <p>Every room comes with a private patio or balcony, full air-conditioning, mini-bar, and en-suite bathroom. Complimentary pick-up and drop-off services are provided from Tagbilaran City's Sea Port and Airport.</p>
+      <div class="about-features">
+        <div class="about-feature"><div class="icon">🏊</div><div>Infinity pool with hot tub</div></div>
+        <div class="about-feature"><div class="icon">🤿</div><div>PADI scuba dive school</div></div>
+        <div class="about-feature"><div class="icon">🍽️</div><div>Sea-view restaurant</div></div>
+        <div class="about-feature"><div class="icon">🚤</div><div>Jet & water skiing</div></div>
+        <div class="about-feature"><div class="icon">🛏️</div><div>A/C rooms with balcony</div></div>
+        <div class="about-feature"><div class="icon">🚐</div><div>Free airport transfers</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STATS STRIP
+     ============================================================ -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal"><span class="num" data-count="9">0</span><span class="label">Sea-view rooms</span></div>
+    <div class="stat reveal"><span class="num" data-count="25" data-suffix="m">0</span><span class="label">Pool length</span></div>
+    <div class="stat reveal"><span class="num" data-count="10" data-suffix="+">0</span><span class="label">Dive sites nearby</span></div>
+    <div class="stat reveal"><span class="num" data-count="365">0</span><span class="label">Days of paradise</span></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE PROPERTY (FILTERABLE GALLERY)
+     ============================================================ -->
+<section class="property" id="property">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">The Property</span>
+      <h2>An infinity pool, a sea-facing dining room, <em>and a sunset every evening.</em></h2>
+      <p>Set on a rocky bluff overlooking the bay, the resort is built around its pool and its octagonal sea-view restaurant. By day, the water is impossibly turquoise. By night, the pool glows in shifting colors — and the sky does the rest.</p>
+    </div>
+
+    <div class="property-filters reveal">
+      <button class="property-filter active" data-filter="all">All</button>
+      <button class="property-filter" data-filter="pool">Pool</button>
+      <button class="property-filter" data-filter="restaurant">Restaurant</button>
+      <button class="property-filter" data-filter="grounds">Grounds</button>
+      <button class="property-filter" data-filter="sunsets">Sunsets</button>
+    </div>
+
+    <div class="property-grid" id="propertyGrid">
+      <div class="prop-tile size-hero" data-category="restaurant" data-caption="The octagonal restaurant — sea-view dining open to the bay">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/restaurant-octagon.jpg" alt="Octagonal sea-view restaurant" />
+        <div class="prop-tile-overlay">
+          <span class="label">The Restaurant</span>
+          <span class="title">Sea-view dining, open to the bay.</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-md" data-category="pool" data-caption="The 25-meter main pool by day">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/resort-pool-day.jpg" alt="Resort pool by day" />
+        <div class="prop-tile-overlay">
+          <span class="label">By Day</span>
+          <span class="title">The Main Pool</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-md" data-category="sunsets" data-caption="Endless skies — sun rays through the clouds at sunset">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/sunset-rays.jpg" alt="Sunset rays" />
+        <div class="prop-tile-overlay">
+          <span class="label">Golden Hour</span>
+          <span class="title">Endless Skies</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-tall" data-category="pool" data-caption="The pool by night — glowing blue with dolphin mosaics">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/pool-night-blue-close.jpg" alt="Pool by night" />
+        <div class="prop-tile-overlay">
+          <span class="label">After Dark</span>
+          <span class="title">Pool by Night</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-md" data-category="pool" data-caption="Color-shifting LED lighting on the pool at night">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/pool-night-pink.jpg" alt="Pool in pink lighting" />
+        <div class="prop-tile-overlay">
+          <span class="label">Mood Lighting</span>
+          <span class="title">Color-Shifting Pool</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-md" data-category="pool" data-caption="The resort at dusk, reflected in the pool">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/pool-twilight.jpg" alt="Pool and resort at twilight" />
+        <div class="prop-tile-overlay">
+          <span class="label">Twilight</span>
+          <span class="title">The Resort at Dusk</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-wide" data-category="sunsets" data-caption="Sunset reflected in the pool — every evening, no two alike">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/sunset-pink.jpg" alt="Pink sunset reflected in the pool" />
+        <div class="prop-tile-overlay">
+          <span class="label">Every Evening</span>
+          <span class="title">Sunsets at Sherwood Bay</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-sm" data-category="grounds" data-caption="The garden events gazebo">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/garden-gazebo.jpg" alt="Garden gazebo" />
+        <div class="prop-tile-overlay">
+          <span class="label">Garden</span>
+          <span class="title">Events Gazebo</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-sm" data-category="restaurant" data-caption="The dining room — open arches, sea-facing windows">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/restaurant-tables.jpg" alt="Restaurant interior" />
+        <div class="prop-tile-overlay">
+          <span class="label">Interior</span>
+          <span class="title">Dining Room</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-sm" data-category="restaurant" data-caption="A tableside view of the bay">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/dining-detail.jpg" alt="Dining detail with sea view" />
+        <div class="prop-tile-overlay">
+          <span class="label">Detail</span>
+          <span class="title">Tableside View</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-sm" data-category="grounds" data-caption="The bluff — resort grounds framed by palm">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/grounds-palm.jpg" alt="Grounds with palm" />
+        <div class="prop-tile-overlay">
+          <span class="label">Grounds</span>
+          <span class="title">The Bluff</span>
+        </div>
+      </div>
+
+      <div class="prop-tile size-md" data-category="grounds" data-caption="The resort at night, lights reflected in the pool">
+        <div class="zoom-icon">⤢</div>
+        <img src="photos/resort-night.jpg" alt="Resort at night" />
+        <div class="prop-tile-overlay">
+          <span class="label">After Hours</span>
+          <span class="title">Resort by Night</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROOMS
+     ============================================================ -->
+<section class="rooms" id="rooms">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">Rooms & Suites</span>
+      <h2>Sea-view sanctuaries, <em>thoughtfully appointed.</em></h2>
+      <p>Six room types across the property, sleeping from two to ten. Every one comes with a private patio or balcony, air-conditioning, mini-bar, and en-suite bathroom.</p>
+    </div>
+    <div class="rooms-grid" id="roomsGrid"><!-- Populated by JS --></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PACKAGES
+     ============================================================ -->
+<section class="packages" id="packages">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">Stay & Celebrate</span>
+      <h2>Reservation packages, <em>thoughtfully crafted.</em></h2>
+      <p>From intimate garden afternoons to exclusive overnight buyouts — our spaces shape themselves around your gathering. By reservation only.</p>
+    </div>
+    <div class="package-grid">
+      <div class="package reveal">
+        <div class="package-num">01</div>
+        <h3>Garden Day Pass</h3>
+        <div class="package-meta">Daily · 9am to 5pm</div>
+        <div class="package-price">₱150<small>/ head</small></div>
+        <ul>
+          <li>Resort entrance & swimming access</li>
+          <li>Use of waterfront gazebo areas</li>
+          <li>No corkage charge</li>
+          <li>Evening rate (5pm–10pm): ₱200/head</li>
+        </ul>
+        <a href="#contact" class="package-btn" data-package="Garden Day Pass">Book this package</a>
+      </div>
+
+      <div class="package featured reveal">
+        <div class="package-badge">Most Popular</div>
+        <div class="package-num">02</div>
+        <h3>Garden Events Venue</h3>
+        <div class="package-meta">2pm to 10pm</div>
+        <div class="package-price">₱200<small>/ head</small></div>
+        <ul>
+          <li>Weddings & receptions</li>
+          <li>Birthdays, debuts, graduations</li>
+          <li>Reunions & team building</li>
+          <li>Full waterfront garden access</li>
+          <li>No corkage charge</li>
+        </ul>
+        <a href="#contact" class="package-btn" data-package="Garden Events Venue">Book this package</a>
+      </div>
+
+      <div class="package reveal">
+        <div class="package-num">03</div>
+        <h3>9-Room Exclusive Buyout</h3>
+        <div class="package-meta">Overnight · For 22 (max 30)</div>
+        <div class="package-price">₱25,000<small>/ night</small></div>
+        <ul>
+          <li>Executive Family Suite (sleeps 10)</li>
+          <li>Honeymoon Jet for 2</li>
+          <li>Standard Family Suite for 4</li>
+          <li>2 Superior Rooms (max 4 each)</li>
+          <li>2 Standard Rooms (max 3 each)</li>
+        </ul>
+        <a href="#contact" class="package-btn" data-package="9-Room Exclusive Buyout">Book this package</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCES BUILDER (INTERACTIVE)
+     ============================================================ -->
+<section class="experiences" id="experiences">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">Bohol Experiences</span>
+      <h2>Build your perfect <em>Bohol itinerary.</em></h2>
+      <p>Click any experience below to add it to your itinerary. We'll arrange everything — transfers, guides, refreshments — so you only need to show up.</p>
+    </div>
+
+    <div class="exp-builder reveal">
+      <div class="exp-builder-head">
+        <h3>Your Bohol itinerary</h3>
+        <div class="exp-builder-summary">
+          <div class="exp-count"><small>Experiences</small><span id="expCount">0</span></div>
+          <div class="exp-duration"><small>Total time</small><span id="expDuration">0h</span></div>
+          <div class="exp-total"><small>Estimated total</small>₱<span id="expTotal">0</span></div>
+          <button class="exp-clear" id="expClear">Clear all</button>
+        </div>
+      </div>
+      <div style="font-size: 0.88rem; color: var(--deep-soft); padding-top: 1rem; border-top: 1px solid var(--line); margin-top: 1rem;">
+        <span id="expSummary">Tap an experience below to start building your trip. We'll send you a custom quote.</span>
+      </div>
+    </div>
+
+    <div class="exp-grid" id="expGrid"><!-- Populated by JS --></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIVE SCHOOL (INTERACTIVE CALCULATOR)
+     ============================================================ -->
+<section class="dive-school" id="dive">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Dive School</span>
+      <h2>Diving, <em>for everyone</em> — at your pace.</h2>
+      <p>Whether you've never breathed underwater before, or you're chasing your hundredth wreck, our instructors meet you exactly where you are. Panglao Island is a world-renowned dive destination — and we've spent decades learning every bubble of it.</p>
+    </div>
+
+    <div class="dive-calculator reveal">
+      <div class="dive-calc-head">
+        <h3>Plan your dive package</h3>
+      </div>
+      <div class="dive-calc-grid">
+        <div class="dive-calc-field">
+          <label>Your level</label>
+          <div class="dive-options" data-group="level">
+            <button class="dive-option active" data-value="discover" data-price="3500"><span>First-timer</span><span class="meta">Discover Scuba</span></button>
+            <button class="dive-option" data-value="certified" data-price="2200"><span>Certified</span><span class="meta">Fun dive</span></button>
+            <button class="dive-option" data-value="kids" data-price="2800"><span>Kids (10+)</span><span class="meta">Bubblemaker</span></button>
+            <button class="dive-option" data-value="adaptive" data-price="3200"><span>Adaptive</span><span class="meta">Wheelchair diving</span></button>
+          </div>
+        </div>
+        <div class="dive-calc-field">
+          <label>Number of dives</label>
+          <div class="dive-options" data-group="dives">
+            <button class="dive-option active" data-value="1" data-multiplier="1"><span>1 dive</span><span class="meta">Half day</span></button>
+            <button class="dive-option" data-value="3" data-multiplier="2.7"><span>3 dives</span><span class="meta">Full day</span></button>
+            <button class="dive-option" data-value="6" data-multiplier="5.1"><span>6 dives</span><span class="meta">2-day package</span></button>
+            <button class="dive-option" data-value="10" data-multiplier="8.0"><span>10 dives</span><span class="meta">Course discount</span></button>
+          </div>
+        </div>
+        <div class="dive-calc-field">
+          <label>Equipment</label>
+          <div class="dive-options" data-group="equipment">
+            <button class="dive-option active" data-value="included" data-extra="0"><span>Use our gear</span><span class="meta">Included</span></button>
+            <button class="dive-option" data-value="own" data-extra="-500"><span>Bring my own</span><span class="meta">Save ₱500</span></button>
+            <button class="dive-option" data-value="premium" data-extra="800"><span>Premium gear</span><span class="meta">+₱800</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="dive-calc-result">
+        <div class="dive-result-item">
+          <small>Package</small>
+          <span class="value" id="divePackageName">Discover Scuba</span>
+        </div>
+        <div class="dive-result-item">
+          <small>Includes</small>
+          <span class="value" id="diveIncludes">1 dive · all gear</span>
+        </div>
+        <div class="dive-result-item">
+          <small>Estimated total</small>
+          <span class="value big" id="divePrice">₱3,500</span>
+        </div>
+        <a href="#contact" class="dive-cta" id="diveBookBtn">Reserve this package →</a>
+      </div>
+    </div>
+
+    <div class="dive-cards">
+      <div class="dive-card reveal">
+        <span class="num-tag">i. For first-timers</span>
+        <h4>Discover Scuba Dive</h4>
+        <p>Always wanted to try? Here's how. Learn a few hand signs, get used to breathing through a regulator, find your balance — and within minutes, you'll know it was worth every moment of effort. We teach at your pace.</p>
+      </div>
+      <div class="dive-card reveal">
+        <span class="num-tag">ii. For certified divers</span>
+        <h4>Experience Diver</h4>
+        <p>Fun dives, refresher sessions, or technique upgrades — we guide you through the dive sites that have made Panglao Island world-famous. Reefs, walls, and macro encounters await.</p>
+      </div>
+      <div class="dive-card reveal">
+        <span class="num-tag">iii. For young divers</span>
+        <h4>Kids' Diving (10+)</h4>
+        <p>Some parents know the joys of diving and want to share them. Children can begin licensing from age 10, and we're experienced in teaching them with the patience and care they deserve.</p>
+      </div>
+      <div class="dive-card reveal">
+        <span class="num-tag">iv. Adaptive diving</span>
+        <h4>For Wheelchair Divers</h4>
+        <p>You can dive — and we're qualified and experienced to teach you. We'll roll you gently into the pool or sea, always there to catch you and help you regain your balance. The underwater world opens up, always with a qualified partner alongside.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VIDEO
+     ============================================================ -->
+<section class="video-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">See it for yourself</span>
+      <h2>Sherwood Bay, <em>in motion.</em></h2>
+      <p>A virtual tour of the resort — the pool, the dive school, the quiet magic of Panglao's coast.</p>
+    </div>
+    <div class="video-frame reveal" id="videoFrame">
+      <img src="videos/video-poster.jpg" alt="" class="video-poster" />
+      <div class="video-poster-overlay">
+        <div class="play-button">▶</div>
+        <div class="video-poster-text">
+          <div class="label">Official Tour · 2026</div>
+          <div class="title">Press play to begin →</div>
+        </div>
+      </div>
+      <video id="resortVideo" controls preload="none" playsinline poster="videos/video-poster.jpg">
+        <source src="videos/sherwood-bay-2026.mp4" type="video/mp4" />
+        Your browser does not support the video tag. <a href="videos/sherwood-bay-2026.mp4">Download the video</a> instead.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIALS
+     ============================================================ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">Guest reviews</span>
+      <h2>What our guests <em>say.</em></h2>
+    </div>
+    <div class="testimonial-carousel reveal" id="testimonials">
+      <div class="testimonial active">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The infinity pool at sunset is something we'll remember forever. The staff treated us like family — even arranged a private dolphin trip when our daughter mentioned she'd never seen one."</p>
+        <div class="testimonial-author">Marie & Tom · Honeymoon, 2024</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"We came for the diving and stayed for the food. Three generations of our family in one place, and not a single argument — that's the Sherwood Bay magic."</p>
+        <div class="testimonial-author">The Reyes Family · Family reunion</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"My first time diving, and I was terrified. The instructor stayed with me the whole time, made me feel safe, and I came up grinning like a kid. Already planning to come back for the course."</p>
+        <div class="testimonial-author">Jasmine · First-time diver</div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"The exclusive buyout for our wedding was perfect. The garden gazebo for the ceremony, the restaurant for the reception, all nine rooms for our families. Worth every peso."</p>
+        <div class="testimonial-author">JP & Lara · Wedding, 2024</div>
+      </div>
+    </div>
+    <div class="testimonial-nav" id="testimonialNav">
+      <div class="testimonial-dot active" data-testimonial="0"></div>
+      <div class="testimonial-dot" data-testimonial="1"></div>
+      <div class="testimonial-dot" data-testimonial="2"></div>
+      <div class="testimonial-dot" data-testimonial="3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow centered">Reserve your stay</span>
+      <h2>Let's plan your <em>Bohol escape.</em></h2>
+      <p>Get in touch and we'll respond within 24 hours with availability, transfer arrangements, and tailored package options.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-info-card">
+          <div class="contact-item">
+            <div class="icon">📍</div>
+            <div>
+              <span class="label">Address</span>
+              <div class="value">Sherwood Bay Resort, Riverside,<br/>Songculan, Dauis, Bohol</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">📞</div>
+            <div>
+              <span class="label">Phone</span>
+              <div class="value"><a href="tel:+639177740324">+63 917 774 0324</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">✉️</div>
+            <div>
+              <span class="label">Email</span>
+              <div class="value"><a href="mailto:sherwoodbay@gmail.com">sherwoodbay@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">⏰</div>
+            <div>
+              <span class="label">Front desk</span>
+              <div class="value">Open 24 hours</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <h3>Send us a message</h3>
+        <p class="subtitle">We respond personally to every inquiry, usually within a few hours.</p>
+
+        <div class="form-field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Juan dela Cruz" required />
+          <div class="form-error" data-for="name">Please enter your name</div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@email.com" required />
+            <div class="form-error" data-for="email">Please enter a valid email</div>
+          </div>
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+63 9XX XXX XXXX" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="formCheckIn">Check-in</label>
+            <input type="date" id="formCheckIn" name="checkin" />
+          </div>
+          <div>
+            <label for="formGuests">Guests</label>
+            <select id="formGuests" name="guests">
+              <option value="1">1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3">3 Guests</option>
+              <option value="4">4 Guests</option>
+              <option value="5">5+ Guests</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="interest">I'm interested in</label>
+          <select id="interest" name="interest">
+            <option value="rooms">Room booking</option>
+            <option value="garden">Garden Events Venue</option>
+            <option value="buyout">Exclusive 9-Room Buyout</option>
+            <option value="diving">Diving Lessons</option>
+            <option value="tours">Bohol Tour Packages</option>
+            <option value="other">Just exploring</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your trip — group size, special requests, anything we should know..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit" id="formSubmit">Send inquiry</button>
+
+        <div class="form-success" id="formSuccess">
+          ✓ Thank you! We've received your message and will be in touch shortly.
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-row">
+        <img src="logo.png" alt="" />
+        <span class="name">Sherwood Bay</span>
+      </div>
+      <p>A boutique beachfront resort and PADI dive school on Panglao Island, Bohol — where paradise truly awaits.</p>
+      <div class="footer-social">
+        <a href="mailto:sherwoodbay@gmail.com" title="Email">✉</a>
+        <a href="tel:+639177740324" title="Phone">📞</a>
+        <a href="https://www.youtube.com/watch?v=RANHgncYRZQ" target="_blank" rel="noopener" title="YouTube">▶</a>
+      </div>
+    </div>
+    <div>
+      <h5>Resort</h5>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#property">Property</a></li>
+        <li><a href="#rooms">Rooms</a></li>
+        <li><a href="#packages">Packages</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Experience</h5>
+      <ul>
+        <li><a href="#experiences">Bohol Tours</a></li>
+        <li><a href="#dive">Dive School</a></li>
+        <li><a href="#contact">Reserve</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Visit</h5>
+      <ul>
+        <li>Riverside, Songculan</li>
+        <li>Dauis, Bohol</li>
+        <li>Philippines 6339</li>
+        <li><a href="tel:+639177740324">+63 917 774 0324</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Sherwood Bay Resort & Dive School. All rights reserved.</span>
+    <span class="script" style="font-family: var(--script); font-size: 1.1rem; color: var(--sand);">~ Paradise Awaits ~</span>
+  </div>
+</footer>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-counter" id="lightboxCounter">1 / 12</div>
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <button class="lightbox-prev" id="lightboxPrev">‹</button>
+  <img class="lightbox-image" id="lightboxImg" src="" alt="" />
+  <button class="lightbox-next" id="lightboxNext">›</button>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<!-- ============================================================
+     ROOM MODAL
+     ============================================================ -->
+<div class="modal-overlay" id="roomModal">
+  <div class="modal">
+    <button class="modal-close" id="roomModalClose">×</button>
+    <img class="modal-image" id="modalImage" src="" alt="" />
+    <div class="modal-body">
+      <span class="badge" id="modalBadge"></span>
+      <h3 id="modalTitle"></h3>
+      <p class="description" id="modalDesc"></p>
+      <div class="features" id="modalFeatures"></div>
+      <div class="modal-footer">
+        <div class="modal-price" id="modalPrice"></div>
+        <a href="#contact" class="btn btn-primary btn-arrow" id="modalBookBtn">Book this room</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BACK TO TOP
+     ============================================================ -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const ROOMS = [
+  {
+    id: 'exec-suite',
+    name: 'Executive Family Suite',
+    badge: 'Sleeps 10',
+    type: 'suite',
+    image: 'photos/room-executive.jpg',
+    price: 12500,
+    size: '85 m²',
+    bed: '2 Queens + 2 Singles',
+    view: 'Sea & garden',
+    description: 'Our most spacious accommodation — a two-room suite with private balcony overlooking the bay. Designed for large families or small groups who want the freedom of their own space without leaving the resort.',
+    features: ['Private balcony', '2 bedrooms', 'Lounge area', 'Air-conditioning', 'Sea view', 'Mini-bar', 'En-suite bathroom', 'Free WiFi']
+  },
+  {
+    id: 'family-suite',
+    name: 'Standard Family Suite',
+    badge: 'Sleeps 4',
+    type: 'suite',
+    image: 'photos/room-suite-seating.jpg',
+    price: 6500,
+    size: '55 m²',
+    bed: '1 Queen + 2 Singles',
+    view: 'Garden',
+    description: 'Spacious suite with seating area, ideal for families of four. Soft natural light, simple furnishings, and a quiet garden outlook.',
+    features: ['Seating area', 'Sleeps 4', 'Air-conditioning', 'Garden view', 'Mini-bar', 'En-suite bathroom', 'Free WiFi', 'Daily housekeeping']
+  },
+  {
+    id: 'honeymoon',
+    name: 'Honeymoon Suite',
+    badge: 'For 2',
+    type: 'suite',
+    image: 'photos/room-suite-balcony.jpg',
+    price: 5500,
+    size: '40 m²',
+    bed: '1 King',
+    view: 'Direct sea view',
+    description: 'A romantic retreat with a private sea-view balcony, king bed, and the soft teal accents of a room designed for slow mornings.',
+    features: ['Private sea-view balcony', 'King bed', 'Romantic setup on request', 'Air-conditioning', 'Mini-bar', 'En-suite bathroom', 'Welcome flowers', 'Late check-out option']
+  },
+  {
+    id: 'superior',
+    name: 'Superior Room',
+    badge: 'Sleeps 4',
+    type: 'superior',
+    image: 'photos/room-rattan.jpg',
+    price: 4200,
+    size: '32 m²',
+    bed: '1 King',
+    view: 'Garden',
+    description: 'A bright, airy room with rattan furniture and a private patio. Comfortable for couples and small families alike.',
+    features: ['Rattan seating', 'Private patio', 'Air-conditioning', 'Mini-bar', 'En-suite bathroom', 'Garden view', 'Free WiFi', 'Daily housekeeping']
+  },
+  {
+    id: 'garden-twin',
+    name: 'Garden Twin',
+    badge: 'Sleeps 2',
+    type: 'superior',
+    image: 'photos/room-twin-bougainvillea.jpg',
+    price: 3800,
+    size: '28 m²',
+    bed: '2 Twins',
+    view: 'Garden (bougainvillea)',
+    description: 'A peaceful twin room with bougainvillea framing the window — quiet, calming, and full of natural light.',
+    features: ['Twin beds', 'Bougainvillea view', 'Air-conditioning', 'Mini-bar', 'En-suite bathroom', 'Free WiFi', 'Bedside lighting', 'Daily housekeeping']
+  },
+  {
+    id: 'standard-twin',
+    name: 'Standard Twin',
+    badge: 'Sleeps 3',
+    type: 'standard',
+    image: 'photos/room-twin-cream.jpg',
+    price: 3200,
+    size: '26 m²',
+    bed: '2 Twins',
+    view: 'Garden',
+    description: 'Clean, cream-toned twin room — simple, comfortable, and good value for travelers prioritizing the diving over the décor.',
+    features: ['Twin beds', 'Sleeps up to 3', 'Air-conditioning', 'Mini-bar', 'En-suite bathroom', 'Free WiFi', 'Reading nook', 'Daily housekeeping']
+  }
+];
+
+const EXPERIENCES = [
+  { id:'countryside', icon:'⛰️', title:'Bohol Countryside Tour', desc:'Chocolate Hills, Manmade Forest, tarsiers, and Baclayon Church — a full-day classic Bohol loop.', duration:'8h', durationH:8, price:2800, size:'lg', img:'images/chocolate-hills.svg' },
+  { id:'panglao', icon:'🌊', title:'Panglao Island Tour', desc:'Hinagdanan Cave, beach hopping, snorkeling and kayaking.', duration:'7h', durationH:7, price:2200, size:'md', img:'images/hinagdanan-cave.svg' },
+  { id:'dolphins', icon:'🐬', title:'Dolphin Watching', desc:'5:30am sunrise departure to spot playful pods off Panglao.', duration:'3h', durationH:3, price:1800, size:'sm', img:'images/dolphins.svg' },
+  { id:'islands', icon:'🏝️', title:'Balicasag & Virgin Island', desc:'Snorkel pristine reefs, BBQ lunch on a disappearing sandbar.', duration:'6h', durationH:6, price:2500, size:'sm', img:'images/sandbar.svg' },
+  { id:'sunset', icon:'🌅', title:'Sunset Cruise', desc:'Catch the last daylight from the bay — 5pm departure.', duration:'1.5h', durationH:1.5, price:1200, size:'sm', img:'images/sunset.svg' },
+  { id:'birds', icon:'🦜', title:'Rajah Sikatuna Birdwatching', desc:'Bohol\'s largest forest — 9,023 hectares of karst limestone and rare species.', duration:'5h', durationH:5, price:1900, size:'md', img:'images/birds.svg' },
+  { id:'watersports', icon:'🚤', title:'Water Sports & Jet Ski', desc:'Right from the resort beach — jet skis, water skis, kayaks, paddleboards.', duration:'flex', durationH:2, price:1500, size:'sm', img:'images/watersports.svg' }
+];
+
+const HERO_SLIDES = 4;
+const TESTIMONIAL_COUNT = 4;
+
+// ============================================================
+// NAVIGATION (scroll state + active link + mobile menu)
+// ============================================================
+const nav = document.getElementById('mainNav');
+const menuToggle = document.getElementById('menuToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+
+  // back to top
+  document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 500);
+
+  // scroll spy
+  const sections = document.querySelectorAll('section[id]');
+  let current = '';
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    if (window.scrollY >= top) current = sec.id;
+  });
+  document.querySelectorAll('[data-link]').forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+});
+
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+
+document.querySelectorAll('[data-mobile-link]').forEach(a => {
+  a.addEventListener('click', () => {
+    menuToggle.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ============================================================
+// HERO SLIDESHOW
+// ============================================================
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+
+function showSlide(i) {
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === i));
+  dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  currentSlide = i;
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.slide)));
+});
+
+setInterval(() => {
+  showSlide((currentSlide + 1) % HERO_SLIDES);
+}, 6000);
+
+// ============================================================
+// BOOKING WIDGET (simulated availability)
+// ============================================================
+const checkIn = document.getElementById('checkIn');
+const checkOut = document.getElementById('checkOut');
+const bookingMsg = document.getElementById('bookingMsg');
+
+// Set default dates: tomorrow + day after
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+const dayAfter = new Date();
+dayAfter.setDate(dayAfter.getDate() + 3);
+
+const fmt = d => d.toISOString().split('T')[0];
+checkIn.value = fmt(tomorrow);
+checkOut.value = fmt(dayAfter);
+checkIn.min = fmt(new Date());
+
+function updateMinCheckout() {
+  const ci = new Date(checkIn.value);
+  ci.setDate(ci.getDate() + 1);
+  checkOut.min = fmt(ci);
+  if (new Date(checkOut.value) <= new Date(checkIn.value)) {
+    checkOut.value = fmt(ci);
+  }
+}
+checkIn.addEventListener('change', updateMinCheckout);
+
+document.getElementById('bookingSearchBtn').addEventListener('click', () => {
+  const ci = new Date(checkIn.value);
+  const co = new Date(checkOut.value);
+  const guests = document.getElementById('guests').value;
+  const roomType = document.getElementById('roomType').value;
+
+  if (!checkIn.value || !checkOut.value) {
+    bookingMsg.textContent = 'Please select both check-in and check-out dates.';
+    bookingMsg.className = 'booking-availability error';
+    return;
+  }
+
+  if (co <= ci) {
+    bookingMsg.textContent = 'Check-out must be after check-in.';
+    bookingMsg.className = 'booking-availability error';
+    return;
+  }
+
+  const nights = Math.round((co - ci) / 86400000);
+  bookingMsg.textContent = 'Searching availability...';
+  bookingMsg.className = 'booking-availability';
+
+  setTimeout(() => {
+    // Simulated: weekends are pricier, otherwise generally available
+    const dayOfWeek = ci.getDay();
+    const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
+    const available = Math.random() > 0.05; // 95% available
+
+    if (available) {
+      const roomLabel = roomType === 'any' ? 'rooms' : roomType + ' rooms';
+      const pricing = isWeekend ? ' (weekend rates apply)' : '';
+      bookingMsg.innerHTML = `✓ ${roomLabel.charAt(0).toUpperCase() + roomLabel.slice(1)} available for <strong>${nights} ${nights === 1 ? 'night' : 'nights'}</strong>, ${guests} guests${pricing}. <a href="#rooms" style="color: inherit; text-decoration: underline;">Browse rooms →</a>`;
+      bookingMsg.className = 'booking-availability success';
+    } else {
+      bookingMsg.innerHTML = 'Those dates are limited. <a href="#contact" style="color: inherit; text-decoration: underline;">Contact us</a> for personal assistance.';
+      bookingMsg.className = 'booking-availability error';
+    }
+  }, 800);
+});
+
+// ============================================================
+// ROOMS — RENDER + MODAL
+// ============================================================
+const roomsGrid = document.getElementById('roomsGrid');
+
+ROOMS.forEach(room => {
+  const card = document.createElement('div');
+  card.className = 'room-card reveal';
+  card.dataset.roomId = room.id;
+  card.innerHTML = `
+    <div class="room-image">
+      <img src="${room.image}" alt="${room.name}" />
+      <div class="room-badge">${room.badge}</div>
+      <div class="room-image-count">📷 View details</div>
+    </div>
+    <div class="room-body">
+      <h3>${room.name}</h3>
+      <div class="room-meta">
+        <span>📐 ${room.size}</span>
+        <span>🛏 ${room.bed}</span>
+        <span>👁 ${room.view}</span>
+      </div>
+      <div class="room-features">
+        ${room.features.slice(0, 4).map(f => `<span class="room-feature-tag">${f}</span>`).join('')}
+      </div>
+      <div class="room-footer">
+        <div class="room-price">₱${room.price.toLocaleString()}<small>/ night</small></div>
+        <span class="room-view-btn">View details →</span>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => openRoomModal(room));
+  roomsGrid.appendChild(card);
+});
+
+const roomModal = document.getElementById('roomModal');
+
+function openRoomModal(room) {
+  document.getElementById('modalImage').src = room.image;
+  document.getElementById('modalBadge').textContent = room.badge;
+  document.getElementById('modalTitle').textContent = room.name;
+  document.getElementById('modalDesc').textContent = room.description;
+  document.getElementById('modalFeatures').innerHTML = room.features.map(f => `<div>${f}</div>`).join('');
+  document.getElementById('modalPrice').innerHTML = `₱${room.price.toLocaleString()}<small>/ night</small>`;
+
+  // Pre-fill the contact form when they click "Book"
+  document.getElementById('modalBookBtn').onclick = () => {
+    document.getElementById('roomModal').classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      document.getElementById('interest').value = 'rooms';
+      document.getElementById('message').value = `I'm interested in the ${room.name}. `;
+      document.getElementById('message').focus();
+    }, 400);
+  };
+
+  roomModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('roomModalClose').addEventListener('click', closeRoomModal);
+roomModal.addEventListener('click', e => { if (e.target === roomModal) closeRoomModal(); });
+
+function closeRoomModal() {
+  roomModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ============================================================
+// PROPERTY GALLERY — FILTER + LIGHTBOX
+// ============================================================
+const propertyTiles = document.querySelectorAll('.prop-tile');
+const filterBtns = document.querySelectorAll('.property-filter');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    propertyTiles.forEach(tile => {
+      if (filter === 'all' || tile.dataset.category === filter) {
+        tile.classList.remove('hidden');
+      } else {
+        tile.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxCounter = document.getElementById('lightboxCounter');
+let lightboxIndex = 0;
+
+function getVisibleTiles() {
+  return Array.from(propertyTiles).filter(t => !t.classList.contains('hidden'));
+}
+
+function openLightbox(index) {
+  const tiles = getVisibleTiles();
+  lightboxIndex = index;
+  const tile = tiles[index];
+  lightboxImg.src = tile.querySelector('img').src;
+  lightboxCaption.textContent = tile.dataset.caption;
+  lightboxCounter.textContent = `${index + 1} / ${tiles.length}`;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function navLightbox(dir) {
+  const tiles = getVisibleTiles();
+  lightboxIndex = (lightboxIndex + dir + tiles.length) % tiles.length;
+  openLightbox(lightboxIndex);
+}
+
+propertyTiles.forEach((tile, i) => {
+  tile.addEventListener('click', () => {
+    const visibleTiles = getVisibleTiles();
+    const visibleIndex = visibleTiles.indexOf(tile);
+    openLightbox(visibleIndex);
+  });
+});
+
+document.getElementById('lightboxClose').addEventListener('click', () => {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+});
+document.getElementById('lightboxPrev').addEventListener('click', e => { e.stopPropagation(); navLightbox(-1); });
+document.getElementById('lightboxNext').addEventListener('click', e => { e.stopPropagation(); navLightbox(1); });
+
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (!lightbox.classList.contains('open')) return;
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+  if (e.key === 'ArrowRight') navLightbox(1);
+  if (e.key === 'Escape') {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ============================================================
+// EXPERIENCES BUILDER
+// ============================================================
+const expGrid = document.getElementById('expGrid');
+const selectedExp = new Set();
+
+EXPERIENCES.forEach(exp => {
+  const card = document.createElement('div');
+  card.className = `exp-card size-${exp.size} reveal`;
+  card.dataset.expId = exp.id;
+  card.innerHTML = `
+    <div class="exp-card-bg">
+      <img src="${exp.img}" class="exp-card-bg-svg" alt="" />
+    </div>
+    <div class="exp-card-content">
+      <span class="exp-card-icon">${exp.icon}</span>
+      <h4>${exp.title}</h4>
+      <p>${exp.desc}</p>
+      <div class="exp-card-meta">
+        <span class="duration">${exp.duration}</span>
+        <span class="price">₱${exp.price.toLocaleString()}</span>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click', () => toggleExperience(exp.id, card));
+  expGrid.appendChild(card);
+});
+
+function toggleExperience(id, card) {
+  if (selectedExp.has(id)) {
+    selectedExp.delete(id);
+    card.classList.remove('selected');
+  } else {
+    selectedExp.add(id);
+    card.classList.add('selected');
+  }
+  updateExpSummary();
+}
+
+function updateExpSummary() {
+  const items = EXPERIENCES.filter(e => selectedExp.has(e.id));
+  document.getElementById('expCount').textContent = items.length;
+  document.getElementById('expDuration').textContent = items.reduce((a, b) => a + b.durationH, 0).toFixed(1) + 'h';
+  document.getElementById('expTotal').textContent = items.reduce((a, b) => a + b.price, 0).toLocaleString();
+
+  const summary = document.getElementById('expSummary');
+  if (items.length === 0) {
+    summary.textContent = 'Tap an experience below to start building your trip. We\'ll send you a custom quote.';
+  } else {
+    const names = items.map(i => i.title).join(' · ');
+    summary.innerHTML = `<strong>${items.length} ${items.length === 1 ? 'experience' : 'experiences'} selected:</strong> ${names}. <a href="#contact" style="color: var(--gold); text-decoration: underline;">Send this itinerary →</a>`;
+  }
+}
+
+document.getElementById('expClear').addEventListener('click', () => {
+  selectedExp.clear();
+  document.querySelectorAll('.exp-card').forEach(c => c.classList.remove('selected'));
+  updateExpSummary();
+});
+
+// When user clicks "Send this itinerary →" link, pre-fill the form
+document.addEventListener('click', e => {
+  if (e.target.matches('a[href="#contact"]') && selectedExp.size > 0) {
+    const items = EXPERIENCES.filter(ex => selectedExp.has(ex.id));
+    setTimeout(() => {
+      document.getElementById('interest').value = 'tours';
+      const lines = items.map(i => `• ${i.title} (${i.duration}, ₱${i.price.toLocaleString()})`).join('\n');
+      const total = items.reduce((a, b) => a + b.price, 0);
+      document.getElementById('message').value = `I'd like to book the following Bohol experiences:\n\n${lines}\n\nEstimated total: ₱${total.toLocaleString()}`;
+    }, 600);
+  }
+});
+
+// ============================================================
+// DIVE CALCULATOR
+// ============================================================
+const diveOptions = document.querySelectorAll('.dive-option');
+const diveState = { level: 'discover', dives: '1', equipment: 'included' };
+const diveData = {
+  level: {
+    discover: { price: 3500, name: 'Discover Scuba' },
+    certified: { price: 2200, name: 'Certified Diver' },
+    kids: { price: 2800, name: "Kids' Diving" },
+    adaptive: { price: 3200, name: 'Adaptive Diving' }
+  },
+  dives: {
+    '1': { mult: 1, label: '1 dive' },
+    '3': { mult: 2.7, label: '3 dives' },
+    '6': { mult: 5.1, label: '6 dives' },
+    '10': { mult: 8.0, label: '10 dives' }
+  },
+  equipment: {
+    included: { extra: 0, label: 'all gear' },
+    own: { extra: -500, label: 'own gear' },
+    premium: { extra: 800, label: 'premium gear' }
+  }
+};
+
+diveOptions.forEach(opt => {
+  opt.addEventListener('click', () => {
+    const group = opt.parentElement.dataset.group;
+    opt.parentElement.querySelectorAll('.dive-option').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+    diveState[group] = opt.dataset.value;
+    updateDiveCalc();
+  });
+});
+
+function updateDiveCalc() {
+  const lvl = diveData.level[diveState.level];
+  const dvs = diveData.dives[diveState.dives];
+  const eq  = diveData.equipment[diveState.equipment];
+  const base = Math.round(lvl.price * dvs.mult);
+  const total = base + (eq.extra * Math.min(diveState.dives === '1' ? 1 : 2, 2));
+
+  document.getElementById('divePackageName').textContent = lvl.name;
+  document.getElementById('diveIncludes').textContent = `${dvs.label} · ${eq.label}`;
+  document.getElementById('divePrice').textContent = '₱' + total.toLocaleString();
+}
+
+// Pre-fill contact form when diving CTA clicked
+document.getElementById('diveBookBtn').addEventListener('click', () => {
+  setTimeout(() => {
+    const lvl = diveData.level[diveState.level];
+    const dvs = diveData.dives[diveState.dives];
+    const total = document.getElementById('divePrice').textContent;
+    document.getElementById('interest').value = 'diving';
+    document.getElementById('message').value = `I'd like to book a dive package:\n• Level: ${lvl.name}\n• Dives: ${dvs.label}\n• Estimated: ${total}\n\nLet me know about availability and what I should prepare.`;
+  }, 600);
+});
+
+// ============================================================
+// VIDEO LAZY-LOAD (native MP4)
+// ============================================================
+document.getElementById('videoFrame').addEventListener('click', function(e) {
+  // Don't trigger if user is interacting with the video controls themselves
+  if (e.target.tagName === 'VIDEO') return;
+  const video = document.getElementById('resortVideo');
+  this.classList.add('playing');
+  // Brief delay so the display:block takes effect before play
+  setTimeout(() => video.play().catch(() => {}), 50);
+});
+
+// ============================================================
+// TESTIMONIALS CAROUSEL
+// ============================================================
+const testimonials = document.querySelectorAll('.testimonial');
+const testimonialDots = document.querySelectorAll('.testimonial-dot');
+let currentTestimonial = 0;
+
+function showTestimonial(i) {
+  testimonials.forEach((t, idx) => t.classList.toggle('active', idx === i));
+  testimonialDots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+  currentTestimonial = i;
+}
+
+testimonialDots.forEach(dot => {
+  dot.addEventListener('click', () => showTestimonial(parseInt(dot.dataset.testimonial)));
+});
+
+setInterval(() => {
+  showTestimonial((currentTestimonial + 1) % TESTIMONIAL_COUNT);
+}, 7000);
+
+// ============================================================
+// PACKAGE BUTTONS — Pre-fill form
+// ============================================================
+document.querySelectorAll('.package-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pkg = btn.dataset.package;
+    setTimeout(() => {
+      const map = { 'Garden Day Pass': 'other', 'Garden Events Venue': 'garden', '9-Room Exclusive Buyout': 'buyout' };
+      document.getElementById('interest').value = map[pkg] || 'other';
+      document.getElementById('message').value = `I'm interested in the ${pkg} package. `;
+      document.getElementById('message').focus();
+    }, 600);
+  });
+});
+
+// ============================================================
+// CONTACT FORM VALIDATION + SUBMISSION
+// ============================================================
+const contactForm = document.getElementById('contactForm');
+
+function validateField(field) {
+  const value = field.value.trim();
+  const error = contactForm.querySelector(`.form-error[data-for="${field.id}"]`);
+
+  if (field.required && !value) {
+    field.classList.add('error');
+    if (error) error.classList.add('show');
+    return false;
+  }
+
+  if (field.type === 'email' && value) {
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(value)) {
+      field.classList.add('error');
+      if (error) error.classList.add('show');
+      return false;
+    }
+  }
+
+  field.classList.remove('error');
+  if (error) error.classList.remove('show');
+  return true;
+}
+
+['name', 'email'].forEach(id => {
+  const field = document.getElementById(id);
+  field.addEventListener('blur', () => validateField(field));
+  field.addEventListener('input', () => {
+    if (field.classList.contains('error')) validateField(field);
+  });
+});
+
+contactForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const valid = validateField(document.getElementById('name')) & validateField(document.getElementById('email'));
+  if (!valid) return;
+
+  const submitBtn = document.getElementById('formSubmit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  // Simulate send
+  setTimeout(() => {
+    document.getElementById('formSuccess').classList.add('show');
+    contactForm.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send inquiry';
+    setTimeout(() => document.getElementById('formSuccess').classList.remove('show'), 6000);
+  }, 1200);
+});
+
+// ============================================================
+// SCROLL REVEAL ANIMATIONS
+// ============================================================
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// Catch dynamically added .reveal (room cards, exp cards) after they render
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.observe(el));
+}, 100);
+
+// ============================================================
+// ANIMATED COUNTERS
+// ============================================================
+const counters = document.querySelectorAll('[data-count]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.count);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1500;
+      const start = Date.now();
+
+      const tick = () => {
+        const elapsed = Date.now() - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const val = Math.floor(eased * target);
+        el.textContent = val + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target + suffix;
+      };
+
+      tick();
+      counterObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.5 });
+
+counters.forEach(c => counterObserver.observe(c));
+
+// Initial summary updates
+updateExpSummary();
+updateDiveCalc();
+
+// ============================================================
+// SMOOTH SCROLL FOR ANCHOR LINKS (offset for sticky nav)
+// ============================================================
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    if (href === '#' || href.length < 2) return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    const offset = target.offsetTop - 80;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  });
+});
+
+</script>
+
+</body>
+</html>
